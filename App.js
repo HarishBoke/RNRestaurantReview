@@ -13,6 +13,7 @@ import RestaurantList from './src/components/RestaurantList';
 
 const App: () => React$Node = () => (
   <>
+    {/* take care on notch and topbar visible , full height*/}
     <StatusBar barStyle="dark-content" />
     <SafeAreaView>
       <ScrollView

@@ -8,7 +8,7 @@ const restaurants = [
   {name: 'JavaScript Stay', address: '111, South Block'},
   {name: 'CSS Cafe', address: '987, Main street'},
 ];
-
+// list: use react native list
 const RestaurantList = () => {
   const [restaurantSearch, setRestaurantSearch] = useState(null);
   return (
