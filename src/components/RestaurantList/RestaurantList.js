@@ -1,55 +1,54 @@
-import React, {useState} from 'react';
-import {TextInput, View, Text, LearnMoreLinks} from 'react-native';
+import React from 'react';
+import {View, Text, ScrollView} from 'react-native';
 import RestaurantListStyle from './RestaurantList.style';
+import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
-const restaurants = [
-  {name: 'React Cafe', address: '123, Main street'},
-  {name: 'React Native Garden', address: '098, North Main street'},
-  {name: 'JavaScript Stay', address: '111, South Block'},
-  {name: 'CSS Cafe', address: '987, Main street'},
-];
 // list: use react native list
-const RestaurantList = () => {
-  const [restaurantSearch, setRestaurantSearch] = useState(null);
+const RestaurantList = (props) => {
+  const {restaurants, restaurantSearch} = props;
   return (
-    <React.Fragment>
-      <TextInput
-        style={RestaurantListStyle.searchRestaurant}
-        placeholder="Find Restaurant"
-        onChangeText={(search) => setRestaurantSearch(search)}
-        value={restaurantSearch}
-      />
+    <ScrollView
+      contentInsetAdjustmentBehavior="automatic"
+      style={RestaurantListStyle.scrollView}>
       <View style={RestaurantListStyle.body}>
         {restaurants
           .filter((place) => {
             return (
               !restaurantSearch ||
-              place.name.toLowerCase().indexOf(restaurantSearch.toLowerCase()) >
-                -1
+              place
+                .get('name')
+                .toLowerCase()
+                .indexOf(restaurantSearch.toLowerCase()) > -1
             );
           })
           .map((place, index) => (
-            <View key={place.name} style={RestaurantListStyle.sectionContainer}>
+            <View
+              key={place.get('name')}
+              style={RestaurantListStyle.sectionContainer}>
               <View style={RestaurantListStyle.flexColumn}>
                 <Text style={RestaurantListStyle.sectionCount}>{`${
                   index + 1
                 }. `}</Text>
                 <Text style={RestaurantListStyle.sectionTitle}>
-                  {place.name}
+                  {place.get('name')}
                 </Text>
                 <Text style={RestaurantListStyle.sectionButton}>Info</Text>
               </View>
               <View>
                 <Text style={RestaurantListStyle.sectionSubTitle}>
-                  {place.address}
+                  {place.get('address')}
                 </Text>
               </View>
             </View>
           ))}
       </View>
-      {/* <LearnMoreLinks /> */}
-    </React.Fragment>
+    </ScrollView>
   );
+};
+RestaurantList.propTypes = {
+  restaurants: ImmutablePropTypes.list,
+  restaurantSearch: PropTypes.string,
 };
 
 export default RestaurantList;

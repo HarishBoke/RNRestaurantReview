@@ -1,6 +1,9 @@
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 export default {
+  scrollView: {
+    backgroundColor: Colors.lighter,
+  },
   sectionContainer: {
     paddingHorizontal: 20,
     paddingVertical: 10,
@@ -45,14 +48,6 @@ export default {
     padding: 4,
     paddingRight: 12,
     textAlign: 'right',
-  },
-  searchRestaurant: {
-    fontSize: 18,
-    padding: 10,
-    paddingHorizontal: 20,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    backgroundColor: '#fefefe',
   },
   flexColumn: {
     flexDirection: 'row',
