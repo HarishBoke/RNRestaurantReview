@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  TouchableHighlight,
+} from 'react-native';
 import RestaurantListStyle from './RestaurantList.style';
 
 const RestaurantRow = (props) => {
@@ -16,12 +22,12 @@ const RestaurantRow = (props) => {
             index + 1
           }. `}</Text>
           <Text style={RestaurantListStyle.sectionTitle}>{place.name}</Text>
-          <TouchableOpacity
+          <TouchableHighlight
             style={RestaurantListStyle.sectionButton}
             accessibilityLabel="Info"
             onPress={() => setShowInfo(!showInfo)}>
             <Text style={RestaurantListStyle.sectionButtonText}>Info</Text>
-          </TouchableOpacity>
+          </TouchableHighlight>
         </View>
         <View>
           <Text style={RestaurantListStyle.sectionSubTitle}>
