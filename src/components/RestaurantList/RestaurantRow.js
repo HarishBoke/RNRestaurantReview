@@ -25,7 +25,8 @@ const RestaurantRow = (props) => {
           <TouchableHighlight
             style={RestaurantListStyle.sectionButton}
             accessibilityLabel="Info"
-            onPress={() => setShowInfo(!showInfo)}>
+            onPress={() => setShowInfo(!showInfo)}
+            underlayColor="#5298DC">
             <Text style={RestaurantListStyle.sectionButtonText}>Info</Text>
           </TouchableHighlight>
         </View>

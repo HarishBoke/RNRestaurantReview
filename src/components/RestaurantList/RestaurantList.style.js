@@ -62,5 +62,12 @@ export default {
   },
   infoMessage: {
     textAlign: 'center',
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: '#ddd',
+    marginHorizontal: 40,
+    marginVertical: 10,
+    padding: 10,
+    backgroundColor: '#fff',
   },
 };
