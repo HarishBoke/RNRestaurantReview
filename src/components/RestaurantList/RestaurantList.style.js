@@ -21,10 +21,18 @@ export default {
     flex: 6,
   },
   sectionButton: {
-    fontSize: 18,
     fontWeight: '600',
-    color: Colors.black,
-    flex: 1,
+    borderWidth: 1,
+    borderColor: '#0066cc',
+    borderRadius: 18,
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    backgroundColor: '#fff',
+    textAlign: 'center',
+  },
+  sectionButtonText: {
+    color: '#0066cc',
+    fontSize: 12,
   },
   sectionSubTitle: {
     fontSize: 16,
