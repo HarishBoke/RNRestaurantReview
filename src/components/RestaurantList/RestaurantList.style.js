@@ -1,6 +1,9 @@
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 export default {
+  scrollView: {
+    backgroundColor: Colors.lighter,
+  },
   sectionContainer: {
     paddingHorizontal: 20,
     paddingVertical: 10,
@@ -18,10 +21,18 @@ export default {
     flex: 6,
   },
   sectionButton: {
-    fontSize: 18,
     fontWeight: '600',
-    color: Colors.black,
-    flex: 1,
+    borderWidth: 1,
+    borderColor: '#0066cc',
+    borderRadius: 18,
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    backgroundColor: '#fff',
+    textAlign: 'center',
+  },
+  sectionButtonText: {
+    color: '#0066cc',
+    fontSize: 12,
   },
   sectionSubTitle: {
     fontSize: 16,
@@ -46,15 +57,17 @@ export default {
     paddingRight: 12,
     textAlign: 'right',
   },
-  searchRestaurant: {
-    fontSize: 18,
-    padding: 10,
-    paddingHorizontal: 20,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    backgroundColor: '#fefefe',
-  },
   flexColumn: {
     flexDirection: 'row',
+  },
+  infoMessage: {
+    textAlign: 'center',
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: '#ddd',
+    marginHorizontal: 40,
+    marginVertical: 10,
+    padding: 10,
+    backgroundColor: '#fff',
   },
 };

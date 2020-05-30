@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: RestaurantList rendering RestaurantList Snapshot: should display the RestaurantList 1`] = `ShallowWrapper {}`;

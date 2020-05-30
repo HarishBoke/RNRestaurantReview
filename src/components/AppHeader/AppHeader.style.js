@@ -8,6 +8,12 @@ export default {
   pageTitleText: {
     fontSize: 24,
     fontWeight: '300',
+    color: 'blue',
+    textAlign: 'center',
+  },
+  iOSPageTitleText: {
+    fontSize: 24,
+    fontWeight: '300',
     color: 'green',
     textAlign: 'center',
   },
