@@ -52,4 +52,7 @@ export default {
   flexColumn: {
     flexDirection: 'row',
   },
+  infoMessage: {
+    textAlign: 'center',
+  },
 };

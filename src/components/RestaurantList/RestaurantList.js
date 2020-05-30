@@ -1,48 +1,32 @@
-import React from 'react';
-import {View, Text, ScrollView} from 'react-native';
-import RestaurantListStyle from './RestaurantList.style';
+import React, {useState} from 'react';
+import {FlatList} from 'react-native';
 import PropTypes from 'prop-types';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
-const RestaurantRow = (place, index) => (
-  <View key={place.get('name')} style={RestaurantListStyle.sectionContainer}>
-    <View style={RestaurantListStyle.flexColumn}>
-      <Text style={RestaurantListStyle.sectionCount}>{`${index + 1}. `}</Text>
-      <Text style={RestaurantListStyle.sectionTitle}>{place.get('name')}</Text>
-      <Text style={RestaurantListStyle.sectionButton}>Info</Text>
-    </View>
-    <View>
-      <Text style={RestaurantListStyle.sectionSubTitle}>
-        {place.get('address')}
-      </Text>
-    </View>
-  </View>
-);
-// list: use react native list
+import RestaurantRow from './RestaurantRow';
+
 const RestaurantList = (props) => {
   const {restaurants, restaurantSearch} = props;
+
+  // Flatlist does not support immutable
+  // Known issue:: Last few restaurant entries are not visible
   return (
-    <ScrollView
-      contentInsetAdjustmentBehavior="automatic"
-      style={RestaurantListStyle.scrollView}>
-      <View style={RestaurantListStyle.body}>
-        {restaurants
-          .filter((place) => {
-            return (
-              !restaurantSearch ||
-              place
-                .get('name')
-                .toLowerCase()
-                .indexOf(restaurantSearch.toLowerCase()) > -1
-            );
-          })
-          .map((place, index) => RestaurantRow(place, index))}
-      </View>
-    </ScrollView>
+    <FlatList
+      data={restaurants.filter((place) => {
+        return (
+          !restaurantSearch ||
+          place.name.toLowerCase().indexOf(restaurantSearch.toLowerCase()) > -1
+        );
+      })}
+      renderItem={({item, index}) => (
+        <RestaurantRow place={item} index={index} />
+      )}
+      keyExtractor={(item) => item.name}
+      initialNumToRender={5}
+    />
   );
 };
 RestaurantList.propTypes = {
-  restaurants: ImmutablePropTypes.list,
+  restaurants: PropTypes.array,
   restaurantSearch: PropTypes.string,
 };
 

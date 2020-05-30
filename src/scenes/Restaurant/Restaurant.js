@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import RestaurantList from '../../components/RestaurantList';
 import LiveSearch from '../../components/LiveSearch';
-import Immutable from 'immutable';
 
 const getRestaurantList = () => {
   const restaurants = [
@@ -28,7 +27,7 @@ const Restaurant = () => {
     <React.Fragment>
       <LiveSearch setRestaurantSearch={setRestaurantSearch} />
       <RestaurantList
-        restaurants={Immutable.fromJS(restaurants)}
+        restaurants={restaurants}
         restaurantSearch={restaurantSearch}
       />
     </React.Fragment>

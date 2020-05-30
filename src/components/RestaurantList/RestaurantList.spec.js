@@ -1,13 +1,12 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Immutable from 'immutable';
 
 import RestaurantList from './RestaurantList';
 
-const restaurants = Immutable.fromJS([
+const restaurants = [
   {name: 'React Cafe', address: '123, Main street'},
   {name: 'React Native Garden', address: '098, North Main street'},
-]);
+];
 const restaurantSearch = 'React Cafe';
 
 const initApp = (overrides) => {
