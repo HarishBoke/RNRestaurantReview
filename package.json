@@ -21,7 +21,7 @@
     "react": "16.11.0",
     "react-dom": "^16.13.1",
     "react-immutable-proptypes": "^2.2.0",
-    "react-native": "0.62.2"
+    "react-native": "0.62.3"
   },
   "devDependencies": {
     "@babel/core": "^7.10.0",
